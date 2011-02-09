@@ -1,0 +1,11 @@
+<launch>
+  <master auto="start"/>
+  <param name="/use_sim_time" value="true"/>
+  <include file="$(find navigation_stage)/move_base_config/move_base.xml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find navigation_stage)/stage_config/maps/willow-full.pgm 0.1" respawn="false" />
+  <node pkg="stage" type="stageros" name="stageros" args="$(find navigation_stage)/stage_config/worlds/willow-pr2.world" respawn="false" >
+    <param name="base_watchdog_timeout" value="0.2"/>
+  </node>
+  <include file="$(find navigation_stage)/move_base_config/amcl_node.xml"/>  
+  <include file="$(find navigation_stage)/move_base_config/nav_view.xml"/>
+</launch>

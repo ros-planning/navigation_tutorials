@@ -1,0 +1,14 @@
+<stack>
+  <description brief="navigation_tutorials">navigation_tutorials</description>
+  <author>Maintained by Eitan Marder-Eppstein</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/navigation_tutorials</url>
+  <depend stack="common" /> <!-- actionlib -->
+  <depend stack="common_msgs" /> <!-- nav_msgs, sensor_msgs, geometry_msgs -->
+  <depend stack="geometry" /> <!-- tf -->
+  <depend stack="navigation" /> <!-- move_base, map_server, nav_view, amcl, fake_localization, move_base_msgs -->
+  <depend stack="ros" /> <!-- roscpp -->
+  <depend stack="simulator_stage" /> <!-- stage -->
+
+</stack>

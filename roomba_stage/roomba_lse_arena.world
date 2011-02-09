@@ -1,0 +1,101 @@
+# lse-roomba.world - basic world file for the roomba
+# Authors: Gonçalo Cabrita
+
+define hokuyo laser
+(
+  	range_min 0.0
+  	range_max 2.0
+  	fov 270.25
+  	samples 1081
+  
+  	color "black"
+  	size [ 0.05 0.05 0.1 ]
+)
+
+define roomba position
+(
+  	size [0.33 0.33 0.1]
+
+  	# This block approximates the circular shape of a Roomba
+  	block
+	( 
+    	points 16
+    	point[0] [ 0.225 0.000 ]
+    	point[1] [ 0.208 0.086 ]
+    	point[2] [ 0.159 0.159 ]
+    	point[3] [ 0.086 0.208 ]
+    	point[4] [ 0.000 0.225 ]
+    	point[5] [ -0.086 0.208 ]
+    	point[6] [ -0.159 0.159 ]
+    	point[7] [ -0.208 0.086 ]
+    	point[8] [ -0.225 0.000 ]
+    	point[9] [ -0.208 -0.086 ]
+    	point[10] [ -0.159 -0.159 ]
+    	point[11] [ -0.086 -0.208 ]
+    	point[12] [ -0.000 -0.225 ]
+    	point[13] [ 0.086 -0.208 ]
+    	point[14] [ 0.159 -0.159 ]
+   		point[15] [ 0.208 -0.086 ]
+        
+		color "gray50"
+  	)
+ 	
+  	hokuyo( pose [0 0 0.1 0] )
+  	color "gray50"
+)
+
+define floorplan model
+(
+  	# Sombre, sensible, artistic
+  	color "gray30"
+
+	# Most maps will need a bounding box
+	boundary 1
+
+	gui_nose 0
+	gui_grid 0
+	gui_move 0
+	gui_outline 0
+	gripper_return 0
+	fiducial_return 0
+	laser_return 1
+)
+
+# Set the resolution of the underlying raytrace model in meters
+resolution 0.02
+
+interval_sim 100  # simulation timestep in milliseconds
+
+# Configure the GUI window
+window
+(
+  	size [ 808.000 600.000 ] 		# in pixels
+  	scale 20  						# pixels per meter
+  	center [ 2.0  1.5 ]
+  	rotate [ 0  0 ]
+  			
+  	show_data 1              	# 1=on 0=off
+)
+
+# load an environment bitmap
+floorplan
+( 
+  	name "lab_maze"
+  	size [4.0 3.0 1.00]
+  	pose [-1.5 2.0 0 90.000]
+  	bitmap "./maps/lse_arena.pgm"
+)
+
+roomba
+(		  
+  	# Can refer to the robot by this name
+  	name "roomba0"
+  	pose [ -1.0 1.0 0 0.0 ]
+
+	drive "diff"
+
+  	# Report error-free position in world coordinates
+  	localization "gps"
+  	localization_origin [ 0 0 0 0 ]
+)
+

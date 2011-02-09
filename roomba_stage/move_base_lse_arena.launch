@@ -1,0 +1,29 @@
+<launch>
+  <master auto="start"/>
+
+  <node pkg="stage" type="stageros" name="stageros" args="$(optenv ROS_STAGE_GRAPHICS -g) $(find roomba_stage)/roomba_lse_arena.world" respawn="false" >
+    <param name="base_watchdog_timeout" value="0.2"/>
+  </node>
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find roomba_stage)/maps/lse_arena.yaml"/>
+
+  <!--- Run AMCL -->
+  <node name="fake_localization" pkg="fake_localization" type="fake_localization" respawn="false" />
+  <!--
+  <include file="$(find roomba_stage)/params/amcl_roomba.launch" />
+  -->
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find roomba_stage)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find roomba_stage)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find roomba_stage)/params/local_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find roomba_stage)/params/local_costmap_params_2.yaml" command="load" />
+    <!--
+    <rosparam file="$(find roomba_stage)/params/global_costmap_params.yaml" command="load" />
+    -->
+
+    <rosparam file="$(find roomba_stage)/params/base_local_planner_params.yaml" command="load" />
+  </node>
+</launch>

@@ -1,0 +1,70 @@
+<launch>
+  <master auto="start"/>
+  <param name="/use_sim_time" value="true"/>  
+
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find navigation_stage)/stage_config/maps/willow-full.pgm 0.1" respawn="false" >
+  </node>
+
+  <node pkg="stage" type="stageros" name="stageros" args="$(optenv ROS_STAGE_GRAPHICS -g) $(find navigation_stage)/stage_config/worlds/willow-pr2-multi.world" respawn="false">
+    <param name="base_watchdog_timeout" value="0.2"/>
+  </node>
+
+  <!-- BEGIN ROBOT 0 -->
+  <group ns="robot_0">
+    <param name="~tf_prefix" value="robot_0" />
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
+      <remap from="map" to="/map" />
+      <param name="controller_frequency" value="10.0" />
+      <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find navigation_stage)/move_base_config/local_costmap_params.yaml" command="load" />
+      <rosparam file="$(find navigation_stage)/move_base_config/global_costmap_params.yaml" command="load" />
+      <rosparam file="$(find navigation_stage)/move_base_config/base_local_planner_params.yaml" command="load" />
+    </node>
+
+    <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="false">
+    </node>
+
+    <node pkg="nav_view" type="nav_view" name="nav_view" respawn="false">
+      <remap from="map" to="/map" />
+      <remap from="goal" to="move_base_simple/goal" />
+      <remap from="obstacles" to="move_base_node/local_costmap/obstacles" />
+      <remap from="inflated_obstacles" to="move_base_node/local_costmap/inflated_obstacles" />
+      <remap from="global_plan" to="move_base_node/NavfnROS/plan" />
+      <remap from="local_plan" to="move_base_node/TrajectoryPlannerROS/local_plan" />
+      <remap from="robot_footprint" to="move_base_node/local_costmap/robot_footprint"/>
+    </node>
+  </group>
+  <!-- END ROBOT 0 -->
+
+  <!-- BEGIN ROBOT 1 -->
+  <group ns="robot_1">
+    <param name="~tf_prefix" value="robot_1" />
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
+      <remap from="map" to="/map" />
+      <param name="controller_frequency" value="10.0" />
+      <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find navigation_stage)/move_base_config/local_costmap_params.yaml" command="load" />
+      <rosparam file="$(find navigation_stage)/move_base_config/global_costmap_params.yaml" command="load" />
+      <rosparam file="$(find navigation_stage)/move_base_config/base_local_planner_params.yaml" command="load" />
+    </node>
+
+    <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="false">
+    </node>
+
+    <node pkg="nav_view" type="nav_view" name="nav_view" respawn="false">
+      <remap from="map" to="/map" />
+      <remap from="goal" to="move_base_simple/goal" />
+      <remap from="obstacles" to="move_base_node/local_costmap/obstacles" />
+      <remap from="inflated_obstacles" to="move_base_node/local_costmap/inflated_obstacles" />
+      <remap from="global_plan" to="move_base_node/NavfnROS/plan" />
+      <remap from="local_plan" to="move_base_node/TrajectoryPlannerROS/local_plan" />
+      <remap from="robot_footprint" to="move_base_node/local_costmap/robot_footprint"/>
+    </node>
+  </group>
+  <!-- END ROBOT 1 -->
+
+</launch>
