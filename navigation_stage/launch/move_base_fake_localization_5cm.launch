@@ -7,5 +7,5 @@
     <param name="base_watchdog_timeout" value="0.2"/>
   </node>
   <node name="fake_localization" pkg="fake_localization" type="fake_localization" respawn="false" />
-  <include file="$(find navigation_stage)/move_base_config/nav_view.xml"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stage)/single_robot.vcg" />
 </launch>
