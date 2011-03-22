@@ -13,8 +13,8 @@ TrajectoryPlannerROS:
   max_rotational_vel: 1.0
   min_in_place_rotational_vel: 0.4
 
-  #Notice that this velocity is set to be negative. A bit confusing admittedly.
-  backup_vel: -0.1
+  #The velocity the robot will command when trying to escape from a stuck situation
+  escape_vel: -0.1
   
   #For this example, we'll use a holonomic robot
   holonomic_robot: true
