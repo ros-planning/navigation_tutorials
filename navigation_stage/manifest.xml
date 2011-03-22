@@ -12,6 +12,7 @@
  <depend package="amcl"/>
  <depend package="map_server"/>
  <depend package="fake_localization"/>
+ <depend package="gmapping"/>
  <platform os="ubuntu" version="9.04"/>
  <platform os="ubuntu" version="9.10"/>
  <platform os="ubuntu" version="10.04"/>
