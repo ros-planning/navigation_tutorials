@@ -52,12 +52,12 @@ int main(int argc, char** argv){
     cloud.header.stamp = ros::Time::now();
     cloud.header.frame_id = "sensor_frame";
 
-    cloud.set_points_size(num_points);
+    cloud.points.resize(num_points);
 
     //we'll also add an intensity channel to the cloud
-    cloud.set_channels_size(1);
+    cloud.channels.resize(1);
     cloud.channels[0].name = "intensities";
-    cloud.channels[0].set_values_size(num_points);
+    cloud.channels[0].values.resize(num_points);
 
     //generate some fake data for our point cloud
     for(unsigned int i = 0; i < num_points; ++i){

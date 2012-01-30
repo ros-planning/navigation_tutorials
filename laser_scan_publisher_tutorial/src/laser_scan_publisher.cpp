@@ -69,8 +69,8 @@ int main(int argc, char** argv){
     scan.range_min = 0.0;
     scan.range_max = 100.0;
 
-    scan.set_ranges_size(num_readings);
-    scan.set_intensities_size(num_readings);
+    scan.ranges.resize(num_readings);
+    scan.intensities.resize(num_readings);
     for(unsigned int i = 0; i < num_readings; ++i){
       scan.ranges[i] = ranges[i];
       scan.intensities[i] = intensities[i];
