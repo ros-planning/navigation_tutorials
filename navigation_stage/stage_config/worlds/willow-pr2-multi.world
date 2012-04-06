@@ -20,7 +20,7 @@ define pr2 position
   size [0.65 0.65 0.25]
   origin [-0.05 0 0 0]
   gui_nose 1
-  drive "diff"
+  drive "omni"
   topurg(pose [ 0.275 0.000 0 0.000 ])
 )
 
