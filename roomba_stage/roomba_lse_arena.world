@@ -1,15 +1,16 @@
 # lse-roomba.world - basic world file for the roomba
 # Authors: Gonçalo Cabrita
 
-define hokuyo laser
+define hokuyo ranger
 (
-  	range_min 0.0
-  	range_max 2.0
-  	fov 270.25
-  	samples 1081
-  
-  	color "black"
-  	size [ 0.05 0.05 0.1 ]
+  sensor(
+        range_min 0.0
+        range_max 2.0
+        fov 270.25
+        samples 1081
+    )
+    color "black"
+    size [ 0.05 0.05 0.1 ]
 )
 
 define roomba position
