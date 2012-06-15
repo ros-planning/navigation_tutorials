@@ -39,7 +39,7 @@ define floorplan model
   gui_outline 0
   gripper_return 0
   fiducial_return 0
-  laser_return 1
+  ranger_return 1
 )
 
 # set the resolution of the underlying raytrace model in meters
