@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>laser_scan_publisher_tutorial</name>
+  <version>0.1.1</version>
+  <description>The laser_scan_publisher_tutorial package</description>
+
+  <maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/laser_scan_publisher_tutorial</url>
+  <url type="repository">https://github.com/ros-planning/navigation_tutorials</url>
+  <url type="bugtracker">https://github.com/ros-planning/navigation_tutorials/issues</url>
+
+  <author>Eitan Marder-Eppstein</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+</package>

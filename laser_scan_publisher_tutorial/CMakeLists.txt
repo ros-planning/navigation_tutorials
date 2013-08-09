@@ -1,30 +1,27 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(laser_scan_publisher_tutorial)
 
-# Set the build type.  Options are:
-#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
-#  Debug          : w/ debug symbols, w/o optimization
-#  Release        : w/o debug symbols, w/ optimization
-#  RelWithDebInfo : w/ debug symbols, w/ optimization
-#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
+# Find catkin dependencies
+find_package(catkin REQUIRED COMPONENTS roscpp sensor_msgs)
 
-rosbuild_init()
+# Call catkin_package
+catkin_package()
 
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+# Add catkin_INCLUDE_DIRS to the include path
+include_directories(${catkin_INCLUDE_DIRS})
 
-#uncomment if you have defined messages
-#rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
+# Build the laser_scan_publisher executable
+add_executable(laser_scan_publisher src/laser_scan_publisher.cpp)
+# Add a build order dependency on sensor_msgs
+# This ensures that sensor_msgs' msg headers are built before your executable
+if(sensor_msgs_EXPORTED_TARGETS)
+  add_dependencies(laser_scan_publisher ${sensor_msgs_EXPORTED_TARGETS})
+endif()
+# Link against the catkin_LIBRARIES
+target_link_libraries(laser_scan_publisher ${catkin_LIBRARIES})
 
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-rosbuild_add_executable(laser_scan_publisher src/laser_scan_publisher.cpp)
-#target_link_libraries(example ${PROJECT_NAME})
+# Mark executables and/or libraries for installation
+install(TARGETS laser_scan_publisher
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

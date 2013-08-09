@@ -3,7 +3,7 @@
   <param name="/use_sim_time" value="true"/>
   <include file="$(find navigation_stage)/move_base_config/move_base.xml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find navigation_stage)/stage_config/maps/willow-full-0.025.pgm 0.025" />
-  <node pkg="stage" type="stageros" name="stageros" args="$(optenv ROS_STAGE_GRAPHICS -g) $(find navigation_stage)/stage_config/worlds/willow-pr2-2.5cm.world" respawn="false" >
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(optenv ROS_STAGE_GRAPHICS -g) $(find navigation_stage)/stage_config/worlds/willow-pr2-2.5cm.world" respawn="false" >
     <param name="base_watchdog_timeout" value="0.2"/>
   </node>
   <node name="fake_localization" pkg="fake_localization" type="fake_localization" respawn="false" />

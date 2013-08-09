@@ -1,0 +1,27 @@
+<package>
+  <name>navigation_tutorials</name>
+  <version>0.1.1</version>
+  <description>
+    Navigation related tutorials.
+  </description>
+  <maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://www.ros.org/wiki/navigation_tutorials</url>
+  <url type="repository">https://github.com/ros-planning/navigation_tutorials</url>
+  <url type="bugtracker">https://github.com/ros-planning/navigation_tutorials/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>laser_scan_publisher_tutorial</run_depend>
+  <run_depend>navigation_stage</run_depend>
+  <run_depend>odometry_publisher_tutorial</run_depend>
+  <run_depend>point_cloud_publisher_tutorial</run_depend>
+  <run_depend>robot_setup_tf_tutorial</run_depend>
+  <run_depend>roomba_stage</run_depend>
+  <run_depend>simple_navigation_goals_tutorial</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

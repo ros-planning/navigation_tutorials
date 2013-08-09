@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package>
+  <name>navigation_stage</name>
+  <version>0.1.1</version>
+  <description>
+    This package holds example launch files for running the ROS navigation stack in stage.
+  </description>
+
+  <maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://www.ros.org/wiki/navigation_stage</url>
+  <url type="repository">https://github.com/ros-planning/navigation_tutorials</url>
+  <url type="bugtracker">https://github.com/ros-planning/navigation_tutorials/issues</url>
+
+  <author>Eitan Marder-Eppstein</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>amcl</build_depend>
+  <build_depend>fake_localization</build_depend>
+  <build_depend>gmapping</build_depend>
+  <build_depend>map_server</build_depend>
+  <build_depend>move_base</build_depend>
+  <build_depend>stage_ros</build_depend>
+
+  <run_depend>amcl</run_depend>
+  <run_depend>fake_localization</run_depend>
+  <run_depend>gmapping</run_depend>
+  <run_depend>map_server</run_depend>
+  <run_depend>move_base</run_depend>
+  <run_depend>stage_ros</run_depend>
+
+</package>
