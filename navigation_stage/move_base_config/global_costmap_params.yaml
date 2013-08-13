@@ -1,6 +1,6 @@
 #Independent settings for the global planner's costmap. Detailed descriptions of these parameters can be found at http://www.ros.org/wiki/costmap_2d
 
-global_costmap: 
+global_costmap:
   #Set the global and robot frames for the costmap
   global_frame: /map
   robot_base_frame: base_link
