@@ -7,5 +7,5 @@
     <param name="base_watchdog_timeout" value="0.2"/>
   </node>
   <include file="$(find navigation_stage)/move_base_config/amcl_node.xml"/>  
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stage)/single_robot.vcg" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stage)/single_robot.rviz" />
 </launch>
