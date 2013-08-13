@@ -24,7 +24,9 @@
       <rosparam file="$(find navigation_stage)/move_base_config/base_local_planner_params.yaml" command="load" />
     </node>
 
-    <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="false">
+    <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="false" output="screen">
+      <param name="odom_frame_id" value="robot_0/odom" />
+      <param name="base_frame_id" value="robot_0/base_link" />
     </node>
   </group>
   <!-- END ROBOT 0 -->
@@ -44,10 +46,12 @@
     </node>
 
     <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="false">
+      <param name="odom_frame_id" value="robot_1/odom" />
+      <param name="base_frame_id" value="robot_1/base_link" />
     </node>
   </group>
   <!-- END ROBOT 1 -->
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stage)/multi_robot.vcg" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_stage)/multi_robot.rviz" />
 
 </launch>
