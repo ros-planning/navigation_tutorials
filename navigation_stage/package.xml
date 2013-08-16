@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>navigation_stage</name>
-  <version>0.1.1</version>
+  <version>0.2.0</version>
   <description>
     This package holds example launch files for running the ROS navigation stack in stage.
   </description>
