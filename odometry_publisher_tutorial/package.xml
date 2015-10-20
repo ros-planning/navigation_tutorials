@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>odometry_publisher_tutorial</name>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
   <description>The odometry_publisher_tutorial package</description>
 
   <maintainer email="william@osrfoundation.org">William Woodall</maintainer>
