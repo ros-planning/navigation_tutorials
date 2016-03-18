@@ -16,11 +16,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>fake_localization</build_depend>
-  <build_depend>map_server</build_depend>
-  <build_depend>move_base</build_depend>
-  <build_depend>stage_ros</build_depend>
-
   <run_depend>fake_localization</run_depend>
   <run_depend>map_server</run_depend>
   <run_depend>move_base</run_depend>
