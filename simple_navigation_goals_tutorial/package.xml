@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>simple_navigation_goals_tutorial</name>
-  <version>0.2.2</version>
+  <version>0.2.3</version>
   <description>The simple_navigation_goals_tutorial package</description>
 
   <maintainer email="william@osrfoundation.org">William Woodall</maintainer>
