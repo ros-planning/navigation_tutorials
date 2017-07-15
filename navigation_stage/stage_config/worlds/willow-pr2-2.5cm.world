@@ -62,9 +62,10 @@ floorplan
   name "willow"
   bitmap "../maps/willow-full-0.025.pgm"
   size [58.300 45.625 1.000]
-  pose [ -22.812 29.150 0 90.000 ] 
+  pose [ 29.15 22.812 0 0.000 ] 
 )
 
 # throw in a robot
-pr2( pose [ -26.068 12.140 0 87.363 ] name "pr2" color "blue")
-block( pose [ -25.251 10.586 0 180.000 ] color "red")
+pr2( pose [ 18.67 9.79 0.0 90.0 ] name "pr2" color "blue")
+block( pose [ 18.71 12.62 0 180.000 ] color "red")
+
