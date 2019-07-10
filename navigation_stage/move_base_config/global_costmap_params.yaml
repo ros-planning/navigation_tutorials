@@ -2,7 +2,7 @@
 
 global_costmap:
   #Set the global and robot frames for the costmap
-  global_frame: /map
+  global_frame: map
   robot_base_frame: base_link
 
   #Set the update and publish frequency of the costmap
