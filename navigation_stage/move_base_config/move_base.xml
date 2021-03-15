@@ -1,4 +1,5 @@
 <launch>
+<arg name="tf_prefix" default=""/>
 <!--
   Example move_base configuration. Descriptions of parameters, as well as a full list of all amcl parameters, can be found at http://www.ros.org/wiki/move_base.
 -->
@@ -14,13 +15,13 @@
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
     -->
 
-    <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find navigation_stage)/move_base_config/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find navigation_stage)/move_base_config/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find navigation_stage)/move_base_config/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="global_costmap" subst_value="True" />
+    <rosparam file="$(find navigation_stage)/move_base_config/costmap_common_params.yaml" command="load" ns="local_costmap" subst_value="True" />
+    <rosparam file="$(find navigation_stage)/move_base_config/local_costmap_params.yaml" command="load" subst_value="True" />
+    <rosparam file="$(find navigation_stage)/move_base_config/global_costmap_params.yaml" command="load" subst_value="True" />
+    <rosparam file="$(find navigation_stage)/move_base_config/base_local_planner_params.yaml" command="load" subst_value="True" />
     <!--
-    <rosparam file="$(find navigation_stage)/move_base_config/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find navigation_stage)/move_base_config/dwa_local_planner_params.yaml" command="load" subst_value="True" />
     -->
   </node>
 </launch>
