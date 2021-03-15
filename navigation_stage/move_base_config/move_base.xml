@@ -4,6 +4,7 @@
   Example move_base configuration. Descriptions of parameters, as well as a full list of all amcl parameters, can be found at http://www.ros.org/wiki/move_base.
 -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
+    <remap from="map" to="/map" />
     <param name="footprint_padding" value="0.01" />
     <param name="controller_frequency" value="10.0" />
     <param name="controller_patience" value="3.0" />
